@@ -1,3 +1,5 @@
+   *. pdf linguist-language=sql
+
 SQL 
 ===
 ### The SQL repository provides you with the most commonly used SQL statements and popular interview quetsions as your tutorial information.
