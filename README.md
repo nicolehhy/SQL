@@ -1,4 +1,4 @@
-   *. pdf linguist-language=sql
+*. pdf linguist-language=sql
 
 SQL 
 ===
