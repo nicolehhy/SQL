@@ -1,0 +1,28 @@
+/apps/hive/bin/hive -e"
+> add jar hdfs://nameservice1//user/hive/udfs/smidudf.jar;
+> create temporary function udfsmid as  'com.baidu.hive.udf.UDFUrlParams';
+> 
+> select '$date'as ymd, d.act_pv, d.act_uv, c.react / d.act_uv as rate
+> from
+> (select a.react as react,b.ymd as ymd from
+> 
+> (select distinct udfsmid(smid) as react from 
+> hds.ns_user__feed__logic__publish
+> where ymd >= '$date1' and ymd <= '$date7'
+> )a
+> 
+> inner join 
+> 
+> (select  distinct udfsmid(smid) as uid,'$date'as ymd 
+> from hds.ns_user__feed__logic__publish
+> where ymd = $date)b
+> 
+> on a.react = b.uid)c
+> 
+> right join
+> 
+> (select '$date'as ymd,count(udfsmid(smid)) as act_pv,count(distinct udfsmid(smid)) as act_uv
+> from hds.ns_user__feed__logic__publish
+> where ymd = $date)d
+> on c.ymd = d.ymd
+> ;"
