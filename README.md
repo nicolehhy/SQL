@@ -8,7 +8,7 @@ Founded in March 2015, Inke has brought worldwide live-streaming service to its 
 with 130 millions of downloads and 15 millions of active users over Android and iOS platforms.
 
  * `Feed Strategy`(new product from product department)
-   * project introduction
+   * project introduction <br>
      This folder shows the process of capturing data related to feed strategies which had been released for 2 weeks.
    * What I needed to analyze are the followings:
     1. Number of people who post feeds, Number of comments, and Number of likes per day
