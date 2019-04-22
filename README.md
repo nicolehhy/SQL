@@ -1,4 +1,5 @@
-*. pdf linguist-language=sql
+# Some SQL Queries used during internships are included in this repository. 
+# Each folder represents a project( These analysis needs were from Product or Operations department)
 
 SQL 
 ===
