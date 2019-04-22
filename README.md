@@ -3,7 +3,7 @@
 
 SQL 
 ===
-### The SQL repository provides you with the most commonly used SQL statements and popular interview quetsions as your tutorial information.
+### The most commonly used SQL statements.
 
 #### Basically used SQL statements
 * QUERYING DATA FROM A TABLE
