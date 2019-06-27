@@ -2,6 +2,34 @@
 > add jar hdfs://nameservice1//user/hive/udfs/smidudf.jar;
 > create temporary function udfsmid as  'com.baidu.hive.udf.UDFUrlParams';
 > 
+### method 1, select all the columns I need and put them into a subquery,then do the calculation using a selct outsied the subquery
+
+select pv,uv,react, react/uv as rate 
+from 
+(
+select count(poi) as pv,
+       count(distinct poi) as uv,
+       (select count(distinct a1.poi) react
+        from
+        (select poi
+		from asvt_arrival 
+		where vessel = 301284 
+		and date_depart between '2018-05-19 08:52:10' and '2019-01-19 08:52:10') a1
+          inner join 
+          (select poi 
+                from asvt_arrival 
+		where vessel = 301284 
+		and date_depart between '2019-01-19 08:52:10' and '2019-06-19 08:52:10') a2
+	  on a1.poi = a2.poi
+		)
+	--count(distinct poi)/r.react  as repo_rate       
+FROM asvt_arrival
+where vessel = 301284 
+and date_depart  between '2018-05-19 08:52:10' and '2019-06-19 08:52:10') sub
+
+
+### method 2
+
 > select '$date'as ymd, d.act_pv, d.act_uv, c.react / d.act_uv as rate
 > from
 > (select a.react as react,b.ymd as ymd from
