@@ -1,9 +1,15 @@
 
+################
+## Background ##
+################
 
+This is a analysis need from Operations Department to analyze if the users like the new feature of 'posting feed'. 
+Here I needed to focused on the user_level, the content they posted, the pass-rate of their posts, how other users react to their posts
+and how often they use these fearture. 
 
-
-
-
+##########
+## Code ##
+##########
 
 (select uid, case when type = 1 then 'platform'
 when type = 2 then 'catch' 
